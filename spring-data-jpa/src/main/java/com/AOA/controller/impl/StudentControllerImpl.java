@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.AOA.controller.IStudentController;
+import com.AOA.dto.DtoStudent;
+import com.AOA.dto.DtoStudentIU;
 import com.AOA.entities.Student;
 import com.AOA.services.IStudentService;
-
-import dto.DtoStudent;
-import dto.DtoStudentIU;
 
 @RestController
 @RequestMapping("/rest/api/student")

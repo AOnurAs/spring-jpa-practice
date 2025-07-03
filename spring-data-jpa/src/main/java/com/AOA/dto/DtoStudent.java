@@ -1,8 +1,4 @@
-package dto;
-
-import java.sql.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+package com.AOA.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,13 +9,10 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DtoStudentIU { // IU insert-update
-
+public class DtoStudent {
+	
 	private String firstName;
 	
 	private String lastName;
-
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date birthOfDate;
-	
+ 
 }

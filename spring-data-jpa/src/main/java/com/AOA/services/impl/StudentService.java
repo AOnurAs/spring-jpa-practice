@@ -8,12 +8,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.AOA.dto.DtoStudent;
+import com.AOA.dto.DtoStudentIU;
 import com.AOA.entities.Student;
 import com.AOA.repository.StudentRepository;
 import com.AOA.services.IStudentService;
-
-import dto.DtoStudent;
-import dto.DtoStudentIU;
 
 @Service
 public class StudentService implements IStudentService {
