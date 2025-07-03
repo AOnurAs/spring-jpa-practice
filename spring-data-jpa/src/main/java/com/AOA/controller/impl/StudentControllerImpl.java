@@ -1,7 +1,9 @@
 package com.AOA.controller.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,9 @@ import com.AOA.controller.IStudentController;
 import com.AOA.entities.Student;
 import com.AOA.services.IStudentService;
 
+import dto.DtoStudent;
+import dto.DtoStudentIU;
+
 @RestController
 @RequestMapping("/rest/api/student")
 public class StudentControllerImpl implements IStudentController {
@@ -25,20 +30,20 @@ public class StudentControllerImpl implements IStudentController {
 	
 	@PostMapping(path = "/save")
 	@Override
-	public Student saveStudent(@RequestBody Student student) {
-		System.out.println("/save\t" + student.toString());
-		return studentService.saveStudent(student);
+	public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+		System.out.println("/save\t" + dtoStudentIU.toString());
+		return studentService.saveStudent(dtoStudentIU);
 	}
 
 	@GetMapping(path="/list")
 	@Override
-	public List<Student> getAllStudents() {
+	public List<DtoStudent> getAllStudents() {
 		return studentService.getAllStudents();
 	}
 	
 	@GetMapping(path="/list/{id}")
 	@Override
-	public Student getStudentById(@PathVariable(name = "id") Integer id) {
+	public DtoStudent getStudentById(@PathVariable(name = "id") Integer id) {
 		return studentService.getStudentById(id);
 	}
 
@@ -50,8 +55,8 @@ public class StudentControllerImpl implements IStudentController {
 
 	@PutMapping(path="/update/{id}")
 	@Override
-	public Student updateStudent(@PathVariable(name = "id") Integer id, @RequestBody Student student) {
-		return studentService.updateStudent(id, student);
+	public DtoStudent updateStudent(@PathVariable(name = "id") Integer id, @RequestBody DtoStudentIU dtoStudentIU) {
+		return studentService.updateStudent(id, dtoStudentIU);
 	}
 
 }
