@@ -4,10 +4,7 @@ import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,11 +27,5 @@ public class DtoStudentIU { // IU insert-update
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date birthOfDate;
 	
-	//@Email(message = "Wrong email format")
-	//private String Email
-	
-	//@Size(min = 11, max = 11, message = "Tckn should be 11 characters")
-	//@NotEmpty(message = "Tckn cannot be empty or null")
-	//private String tckn
 	
 }
