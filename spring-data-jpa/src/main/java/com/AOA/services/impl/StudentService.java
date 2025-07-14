@@ -8,8 +8,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.AOA.dto.DtoCourse;
 import com.AOA.dto.DtoStudent;
 import com.AOA.dto.DtoStudentIU;
+import com.AOA.entities.Course;
 import com.AOA.entities.Student;
 import com.AOA.repository.StudentRepository;
 import com.AOA.services.IStudentService;
@@ -43,7 +45,7 @@ public class StudentService implements IStudentService {
 		return dtoList;
 	}
 
-	@Override
+/*	@Override
 	public DtoStudent getStudentById(Integer id) {
 		Optional<Student> optional = studentRepository.findById(id);
 		DtoStudent dtoStudent = new DtoStudent();
@@ -53,6 +55,28 @@ public class StudentService implements IStudentService {
 		}
 		
 		return null;
+	}	*/
+
+	@Override
+	public DtoStudent getStudentById(Integer id) {
+		DtoStudent dtoStudent = new DtoStudent();
+		Optional<Student> optional = studentRepository.findById(id);
+		if(optional.isEmpty()) {
+			return null;
+		}
+		
+		Student dbStudent = optional.get();
+		BeanUtils.copyProperties(dbStudent, dtoStudent);
+		
+		if(dbStudent.getCourses() != null && !dbStudent.getCourses().isEmpty()) {
+			for (Course course: dbStudent.getCourses()) {
+				DtoCourse dtoCourse = new DtoCourse();
+				BeanUtils.copyProperties(course, dtoCourse);
+				
+				dtoStudent.getCourses().add(dtoCourse);
+			}
+		}
+		return dtoStudent;
 	}
 
 

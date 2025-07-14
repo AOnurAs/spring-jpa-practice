@@ -1,24 +1,22 @@
 package com.AOA.dto;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DtoStudent {
+public class DtoHome {
 	
-	private Integer id;
+	private Long id;
 	
-	private String firstName;
+	private BigDecimal price;
 	
-	private String lastName;
- 
-	private List<DtoCourse> courses = new ArrayList<>();
+	private List<DtoRoom> rooms = new ArrayList<>();
+	
 }
